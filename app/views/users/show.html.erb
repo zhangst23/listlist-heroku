@@ -1,0 +1,47 @@
+<h1>个人信息</h2>
+<% img(src="#{gravatar_url('2243980491@qq.com')}") %>
+<dl>
+	<dt class="span1"> ID: </dt>
+	<dd>
+		<strong><%= @user.name %></strong>
+	</dd>
+	<dt class="span1">Since: </dt>
+	<dd><%= @user.created_at %></dd>
+</dl>
+
+<section id="user_recent_lists" class="box">
+	<section id="user_recent_lists_banner" class="box info-box"><span>最近发布的帖子</span></section>
+	<section id="user_recent_lists_content" class="box">
+		<ul>
+			<% @user.lists.each do |list| %>
+				<li>
+					<%= link_to list.node.name, list.node, class: "node" %>
+					<%= link_to list.title, list %>
+					<span><%= published at #{time_ago_in_words(list.created_at)} ago %></span>
+				</li>
+		</ul>
+	</section>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

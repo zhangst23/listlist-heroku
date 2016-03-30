@@ -1,0 +1,16 @@
+<br>
+<br>
+<div class="row node_topics">
+    <div class="medium-8 columns node_info">
+		<h2><%= @node.name %></h2>
+		<span>共有<%= @node.lists.count %>个学习清单</span>
+		<p><%= @node.summary %></p>
+		<%= render '/lists/list_list', lists: @node.lists %> 
+	</div>
+
+	<div class="sidebar medium-4 columns">
+		<div id="new_list" class="box">
+			<%= link_to "创建新清单", nil, class: "btn disabled" %>
+		</div>
+	</div>
+</div>

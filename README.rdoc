@@ -1,0 +1,109 @@
+# user
+rails g devise User
+rails g migration add_name_to_users name:string
+rails g migration add_user_id_to_lists user_id:integer
+
+# list
+rails g scaffold list title:string content:text
+
+# node
+rails g model Node name:string summary:string
+rails g migration add_node_id_to_lists node_id:integer
+rails generate controller Nodes
+rake db:migrate
+rails g migration add_node_name_to_lists node_name:string
+rake db:migrate
+
+
+
+# comment
+rails generate model Comment commenter:string body:text list:references
+rails generate controller Comments
+
+
+
+
+
+
+
+
+<li class="has-dropdown">
+          <a href="#">我</a>
+          <ul class="dropdown">
+            <li class="divider"></li>
+            <li><%= link_to '创建清单', new_list_path %></li>
+            <li class="divider"></li>
+            <li><%=link_to "编辑", edit_user_registration_path %></li>
+            <li class="divider"></li>
+            <li><%= link_to '退出', destroy_user_session_path, method: :delete %></li> 
+          </ul>
+        </li>
+
+
+
+  <%if user_signed_in? %>
+      <ul class="right">
+        <li class="#"><a href="#">分类</a></li>
+        <li class="has-dropdown">
+          <a href="#">我</a>
+          <ul class="dropdown">
+            <li><%= link_to '主页' %></li>
+            <li><%= link_to '收藏' %></li>
+            <li><%= link_to '编辑', edit_user_registration_path %></li>
+            <li><%= link_to '退出', destroy_user_session_path, method: :delete %></li>         
+          </ul>
+        </li>
+      </ul>
+
+
+      <ul>
+          <li class="has-form">
+            <div class="row collapse">
+              <div class="large-8 small-9 columns">
+                <input type="text" placeholder="知识">
+              </div>
+              <div class="large-4 small-3 columns">
+                <a href="#" class="alert button expand">搜索</a>
+              </div>
+            </div>
+          </li>
+      </ul>
+  <% else %>
+      <ul>
+          <li class="divider"></li>
+          <li><%= link_to '登陆', new_user_registration_path %></li>
+          <li><%= link_to '注册', new_user_session_path %></li>
+      </ul>
+  <% end %>
+
+
+
+
+        <td><%= link_to 'Show', list %></td>
+        <td><%= link_to 'Edit', edit_list_path(list) %></td>
+        <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+
+
+  <%= render "/shared/side_node" %>
+
+
+
+<%= render 'shared/breadcrumb', links: [["首页"], ], ["清单", list_path], [@list.node.name, @list.node ], ["浏览帖子", ""] %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="small-7 columns">
+    <%= simple_form_for @list do |f| %>
+        <% if @list.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>
+
+              <ul>
+              <% @list.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+        <% end %>
+
+        <div class="input-group">
+          <%= f.input :title, label: '标题', placeholder: "填写清单标题" %>
+          <%= f.input :title, label: '标签', placeholder: "节点标签 比如: Ruby " %>           
+        </div>
+
+        <div class="list-body">
+            <div>
+                <%= f.input :content, label: '内容  (兼容 Markdown 格式)', class: "textarea" %>
+            </div>
+        </div>
+        <br>
+
+        <div class="actions">
+          <%= f.submit :保存, class: "button" %>
+        </div>
+    <% end %>
+  </div>
+  <div class="small-5 columns">
+    <%= link_to "预览", "#", class: "button warning", "data-toggle": "modal", " data-target": "#previewModal", id: "preview"  %>
+
+    <div class="tabs-panel list_preview" id="panel2">
+
+    </div>    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

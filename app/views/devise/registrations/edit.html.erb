@@ -1,0 +1,51 @@
+<h2>编辑 <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+  <div class="field">
+    <%= f.label :用户名 %>
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :头像 %>
+    <%= image_tag(@user.avatar_url) if @user.avatar? %>
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+  </div>
+  <div class="field">
+    <%= f.label :邮箱 %>
+    <%= f.email_field :email %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :旧密码 %>
+    <%= f.password_field :current_password, autocomplete: "off", placeholder: "我们需要你当前密码" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :新密码 %>
+    <%= f.password_field :password, autocomplete: "off", placeholder: "不想更改密码可以不填" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :确认密码 %>
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= f.submit "更新", class: "button" %>
+  </div>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "Back", :back %>

@@ -1,0 +1,9 @@
+<div class="nodes_list">
+	<br>
+	标签: <br> <br>
+	<% @nodes.each do |node| %>
+      <button class="secondary hollow button tiny">
+          <%= link_to node.name, node %>
+      </button>
+    <% end %> 
+</div>

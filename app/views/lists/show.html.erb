@@ -1,0 +1,23 @@
+
+<br>
+<h2><%= @list.title %></h2>
+<p>
+  <% if @list.node.present? %>
+  节点: <%= link_to @list.node.name, @list.node, class: "node" %>
+  <% else %>
+  节点未填写
+  <% end %>
+</p>
+<br>
+
+<div>
+  <%= raw markdown(@list.content) %>
+</div>
+<br>
+<br>
+<br>
+<br>
+<% if user_signed_in? %>
+	<%= link_to '修改', edit_list_path(@list), class: "tiny success hollow button" %>
+<% end %>
+<%= link_to '返回首页', lists_path, class: "tiny alert hollow button" %>

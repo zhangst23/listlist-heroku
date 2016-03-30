@@ -1,0 +1,11 @@
+<h2>用户</h2>
+<div class="large-8 columns">
+    <% @users.each do |user| %>
+      <div class="user">
+        <p><%= link_to user.name, user %></p>
+        <p><%= link_to user.avatar, user %></p>
+        <p><%= link_to user.email, user %></p>
+
+      </div>
+    <% end %> 
+</div>

@@ -1,0 +1,14 @@
+<div class="lists box">
+	<% lists.each do |list| %>
+		<div>
+			<h2 class="list_title">
+				<%= link_to list.title, list %>
+			</h2>
+			<p>
+			  <%= truncate(list.content, length: 99) %>
+			  <br>			
+			  <%= link_to list.node.name, list.node, class: "node" if list.node.present? %>	
+	        </p>
+		</div>
+	<% end %>
+</div>

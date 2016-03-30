@@ -1,0 +1,25 @@
+<br>
+<br>
+<div class="row">
+  <div class="medium-8 columns">
+    <%= render 'list_list', lists: @lists %>
+    <br>
+    <%= paginate @lists %>
+  </div>
+  
+
+  <div class="medium-4 columns">
+    <%= link_to '创建清单', new_list_path, class: "disabled button" %>
+    <br>
+
+  </div>
+  
+</div>
+
+
+
+
+
+
+
+
