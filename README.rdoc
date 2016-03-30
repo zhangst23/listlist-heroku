@@ -93,7 +93,18 @@ rails generate controller Comments
 
 
 
-
+          <div class="node_select">
+            <label>选择节点
+              <select>
+                <% @nodes.each do |node| %>
+                  <option>
+                      <%= @node.name %>
+                  </button>
+                <% end %> 
+          
+              </select>
+            </label>
+          </div> 
 
 
 
