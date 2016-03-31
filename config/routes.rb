@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   root 'lists#index'
 
+  get 'search', to: 'search#search'
 
 
 

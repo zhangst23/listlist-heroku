@@ -36,6 +36,16 @@ gem 'redcarpet'
 
 gem 'rails_admin'
 
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+
+
+
+
+
+
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -57,6 +67,10 @@ group :development do
   gem 'sqlite3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
 end
 
 
