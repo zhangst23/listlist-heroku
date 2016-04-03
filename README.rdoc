@@ -21,10 +21,12 @@ rails generate model Comment content:text list:references user:references
 rails generate controller Comments
 rake db:migrate
 
+# profile
+rails g controller profiles show edit
 
-
-
-
+# 
+rails generate migration AddBioToUsers bio:text 
+rake db:migrate
 
 
 <li class="has-dropdown">
@@ -34,6 +36,8 @@ rake db:migrate
             <li><%= link_to '创建清单', new_list_path %></li>
             <li class="divider"></li>
             <li><%=link_to "编辑", edit_user_registration_path %></li>
+            
+            
             <li class="divider"></li>
             <li><%= link_to '退出', destroy_user_session_path, method: :delete %></li> 
           </ul>

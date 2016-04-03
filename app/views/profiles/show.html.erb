@@ -1,0 +1,63 @@
+<br>
+
+<div class="row profile-header">
+	<div class="large-6 columns">
+			<div class="img-cicle">
+				profile_avatar_select(@user)
+			</div>
+	</div>
+	<div class="large-6 columns">
+			<div class="user-name">
+				<h3 class="profile-user-name">
+					<%= @user.name %>
+				</h3>
+				<span>
+					<% if @user == current_user %>
+						<%= link_to '编辑', edit_profile_path(@user.name),
+                                      class: 'btn edit-button' %>
+					<% end %>
+				</span>
+			</div>
+			<p class="profile-bio">
+				<% @user.bio %>				
+			</p>
+			<div class="user-statistics">
+				<p>
+					<%= pluralize @user.lists.count, '条清单' %>
+				</p>
+			</div>
+	</div>
+</div>
+
+
+
+<div class="row">
+  <div class="large-6 columns">
+  	<h2>我的清单:</h2>
+	<% @user.lists.each do |list| %>
+		<h4 class="list_title">
+			<%= link_to list.title, list %>
+		</h4>
+	<% end %>
+  </div>
+  <div class="large-6 columns">
+    <h2>我的收藏:</h2>
+  	<% @lists.each do |list| %>
+		<h4 class="list_title">
+			<%= link_to list.title, list %>
+		</h4>
+	<% end %>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

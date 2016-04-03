@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
-
+  before_action :owned_post, only: [:edit, :update, :destroy]
   # GET /lists
   # GET /lists.json
   def index

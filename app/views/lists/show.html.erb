@@ -6,6 +6,12 @@
   <% else %>
   节点未填写
   <% end %>
+
+  <% if @list.user.present? %>
+  用户名: <%= link_to @list.user.name, profile_path(@list.user.name) %>
+  <% else %>
+  用户名未填写
+  <% end %>
 </p>
 <br>
 
