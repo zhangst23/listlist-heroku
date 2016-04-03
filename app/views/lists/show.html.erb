@@ -1,4 +1,3 @@
-
 <br>
 <h2><%= @list.title %></h2>
 <p>
@@ -10,14 +9,44 @@
 </p>
 <br>
 
-<div>
+<div class="list-content">
   <%= raw markdown(@list.content) %>
 </div>
-<br>
-<br>
-<br>
-<br>
+
+<br><br><br><br>
+
 <% if user_signed_in? %>
 	<%= link_to '修改', edit_list_path(@list), class: "tiny success hollow button" %>
 <% end %>
 <%= link_to '返回首页', lists_path, class: "tiny alert hollow button" %>
+
+<br><br><br>
+
+<br>     
+<div class="list-bottom">
+	<div class="list-comment">
+		<div class="comment-#{list.id}">
+			<h2>评论:</h2>
+			<% @list.comments.each do |comment| %>
+				<div class="user-name">
+					<%= link_to "comment.user.name" %>
+				</div>
+				<div class="comment-content">
+					<%= comment.content %>
+				</div>
+
+			<% end %>
+		</div>
+		<br>
+		<div class="comment-form">
+		      <%= simple_form_for [@list, @list.comments.build] do |f| %>
+		      
+		        <%= f.input :content, label: '评论内容', placeholder: '添加评论...', class: "comment_content" %>
+		             
+		        <%= f.button :submit, '提交', class: 'comment-submit-button' %>
+		       
+		      <% end %>
+	    </div>
+	</div>
+</div>
+

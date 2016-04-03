@@ -17,9 +17,9 @@ rake db:migrate
 
 
 # comment
-rails generate model Comment commenter:string body:text list:references
+rails generate model Comment content:text list:references user:references
 rails generate controller Comments
-
+rake db:migrate
 
 
 
@@ -109,11 +109,17 @@ rails generate controller Comments
 
 
 
+      <%= render list.comments, list: list %>
 
 
 
-
-
+        <% if comment.user == current_user %>
+          <%= link_to list_comment_path(@list, comment), method: :delete, 
+                data: { list_id: @list.id, value: @list.comments.count, confirm: "你确定要删除吗？" }, 
+                remote: true, 
+                id: "delete-#{comment.id}", 
+                class: "delete-comment glyphicon glyphicon-remove delete-comment-icon" %>
+        <% end %>
 
 
 

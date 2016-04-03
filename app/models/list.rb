@@ -2,6 +2,7 @@ require 'elasticsearch/model'
 class List < ActiveRecord::Base
 	belongs_to :author, class_name: "User", foreign_key: "user_id"
 	belongs_to :node
+    has_many :comments, dependent: :destroy
 
 	include Elasticsearch::Model
     include Elasticsearch::Model::Callbacks
