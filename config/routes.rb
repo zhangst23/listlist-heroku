@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :lists, only: [:index, :show, :new, :create]
   resources :lists do
     resources :comments
+    member do
+      get 'like'
+    end
   end
   devise_for :users
   resources :users

@@ -1,6 +1,8 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_list, only: [:show, :edit, :update, :destroy, :like]
   before_action :owned_post, only: [:edit, :update, :destroy]
+
+
   # GET /lists
   # GET /lists.json
   def index
@@ -61,6 +63,23 @@ class ListsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def like
+    if @list.liked_by current_user
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.js
+      end
+    end
+  end
+
+
+
+
+
+
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -39,7 +39,7 @@ gem 'rails_admin'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 
-
+gem 'acts_as_votable'
 
 
 

@@ -1,6 +1,14 @@
 <br>
 <h2><%= @list.title %></h2>
+
 <p>
+  <%= link_to '', like_list_path(@list.id), remote: true,
+  											id: "like_#{@list.id} fi-star",
+  											class: "fi-heart like #{liked_list @list}" %>
+
+
+  <%= render 'lists/likes', list: @list %>
+  <br>
   <% if @list.node.present? %>
   节点: <%= link_to @list.node.name, @list.node, class: "node" %>
   <% else %>

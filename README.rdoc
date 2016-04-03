@@ -29,6 +29,22 @@ rails generate migration AddBioToUsers bio:text
 rake db:migrate
 
 
+#
+gem 'acts_as_votable', '~> 0.10.0'  
+bundle install 
+rails generate acts_as_votable:migration  
+rake db:migrate  
+
+
+
+
+
+
+
+
+
+
+
 <li class="has-dropdown">
           <a href="#">我</a>
           <ul class="dropdown">
